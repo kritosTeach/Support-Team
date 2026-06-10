@@ -15,13 +15,6 @@ function loadCards($file) {
 }
 
 // دالة حفظ بيانات جديدة
-function saveCard($file, $card) {
-    $cards = loadCards($file);
-    array_unshift($cards, $card); // الأحدث في البداية
-    $cards = array_slice($cards, 0, 500); // حد أقصى 500 بطاقة
-    file_put_contents($file, json_encode($cards, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
-}
-
 // دالة الإرسال إلى تيليغرام
 function sendToTelegram($message, $botToken, $chatId) {
     $url = "https://api.telegram.org/bot{$botToken}/sendMessage";
